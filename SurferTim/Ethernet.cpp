@@ -1,3 +1,6 @@
+// Modified by SurferTim to support Ethernet.select()
+// See: http://forum.arduino.cc/index.php?topic=217423.msg1962182#msg1962182
+
 #include "utility/w5100.h"
 #include "Ethernet.h"
 #include "Dhcp.h"
@@ -8,11 +11,21 @@ uint8_t EthernetClass::_state[MAX_SOCK_NUM] = {
 uint16_t EthernetClass::_server_port[MAX_SOCK_NUM] = { 
   0, 0, 0, 0 };
 
+uint8_t EthernetClass::slaveSelect = 10;
+  
+void EthernetClass::select(uint8_t _ss)
+{
+  W5100.selectSS(_ss);
+  slaveSelect = _ss;
+}
+
 int EthernetClass::begin(uint8_t *mac_address)
 {
   static DhcpClass s_dhcp;
   _dhcp = &s_dhcp;
 
+  pinMode(slaveSelect,OUTPUT);
+  digitalWrite(slaveSelect,HIGH);
 
   // Initialise the basic info
   W5100.init();
@@ -64,6 +77,8 @@ void EthernetClass::begin(uint8_t *mac_address, IPAddress local_ip, IPAddress dn
 
 void EthernetClass::begin(uint8_t *mac, IPAddress local_ip, IPAddress dns_server, IPAddress gateway, IPAddress subnet)
 {
+  pinMode(slaveSelect,OUTPUT);
+  digitalWrite(slaveSelect,HIGH);
   W5100.init();
   SPI.beginTransaction(SPI_ETHERNET_SETTINGS);
   W5100.setMACAddress(mac);
