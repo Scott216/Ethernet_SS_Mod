@@ -25,6 +25,11 @@ Arduino made some minor changes from 1.6.6 to 1.8.4, mostly changing the name of
 w5100.h: https://www.diffchecker.com/RZSHJdTH  
 w5100.cpp: https://www.diffchecker.com/WDdLcEgv  
 
-I took the w5100 v1.8.4 files and applied kiwisincebirth's changes so the slave select feature would work  
+Here are the changes SurferTim made to the 1.5.8 version of the files:
+Ethernet.h https://www.diffchecker.com/V9PzVlbb  
+Ethernet.cpp https://www.diffchecker.com/lTf9IvhC  
+w5100.h https://www.diffchecker.com/qFhgWXbQ  
+w5100.cpp https://www.diffchecker.com/goLkR0sG  
+
 
 
