@@ -1,5 +1,8 @@
+// Modified by SurferTim to support Ethernet.select()
+// See: http://forum.arduino.cc/index.php?topic=217423.msg1962182#msg1962182
+
 /*
- * Copyright (c) 2010 by Cristian Maglie <c.maglie@arduino.cc>
+ * Copyright (c) 2010 by Cristian Maglie <c.maglie@bug.st>
  *
  * This file is free software; you can redistribute it and/or modify
  * it under the terms of either the GNU General Public License version 2
@@ -137,6 +140,11 @@ class W5100Class {
 
 public:
   void init();
+  void selectSS(uint8_t _ss);
+  static uint8_t  slaveSelect;
+  static void initSS(void);
+  static void setSS(void);
+  static void resetSS(void);
 
   /**
    * @brief	This function is being used for copy the data form Receive buffer of the chip to application buffer.
@@ -332,6 +340,8 @@ private:
 private:
 #if defined(ARDUINO_ARCH_AVR)
 #if defined(__AVR_ATmega1280__) || defined(__AVR_ATmega2560__)
+
+/* Tim removed
   inline static void initSS()    { DDRB  |=  _BV(4); };
   inline static void setSS()     { PORTB &= ~_BV(4); };
   inline static void resetSS()   { PORTB |=  _BV(4); };
@@ -347,6 +357,8 @@ private:
   inline static void initSS()    { DDRB  |=  _BV(2); };
   inline static void setSS()     { PORTB &= ~_BV(2); };
   inline static void resetSS()   { PORTB |=  _BV(2); };
+*/
+
 #endif
 #endif // ARDUINO_ARCH_AVR
 };
