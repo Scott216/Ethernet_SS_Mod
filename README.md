@@ -33,6 +33,8 @@ Ethernet.cpp https://www.diffchecker.com/lTf9IvhC
 w5100.h https://www.diffchecker.com/qFhgWXbQ  
 w5100.cpp https://www.diffchecker.com/goLkR0sG  
 
-
+Here are the changes kiwisincebirth made to the 1.5.8 version of the files:  
+w5100.h: https://www.diffchecker.com/Ysg0yhn1  
+w5100.cpp: https://www.diffchecker.com/klUSxCVV  
 
 
