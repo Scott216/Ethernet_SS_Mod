@@ -5,6 +5,9 @@
  * it under the terms of either the GNU General Public License version 2
  * or the GNU Lesser General Public License version 2.1, both as
  * published by the Free Software Foundation.
+ *
+ * Modified by kiwisincebirth and Scott Goldthwaite to accomoidate changing the slave select pin
+ * 
  */
 
 #ifndef	W5100_H_INCLUDED
@@ -343,6 +346,13 @@ private:
   inline static void initSS()    { DDRB  |=  _BV(0); };
   inline static void setSS()     { PORTB &= ~_BV(0); };
   inline static void resetSS()   { PORTB |=  _BV(0); }; 
+#elif defined(__AVR_ATmega328P__) || defined(__AVR_ATmega1284P__)
+  // Added by SRG to use changes slave select pins with Moteino boards 
+  // Atmega 328P for standard Moteino, Atmega 1284P for MoteinoMega
+  static uint8_t  slaveSelect; 
+  static void initSS(void); 
+  static void setSS(void); 
+  static void resetSS(void); 
 #else
   inline static void initSS()    { DDRB  |=  _BV(2); };
   inline static void setSS()     { PORTB &= ~_BV(2); };
