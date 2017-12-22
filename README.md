@@ -17,19 +17,22 @@ The w5100.cpp and .h files are located
 Windows: C:\Program Files(x86)\Arduino\libraries\Ethernet\utility\  
 Mac: /Applications/Arduino.app > show pkg contents > /Contents/Resources/Java/libraries/Ethernet/src/utility/  
 
-Arduino made some changes to w5100 library from v1.5.8 to 1.6.6. Changes are shown here:  
+Arduino made some changes to Ethernet/w5100 libraries from v1.5.8 to 1.6.6. Changes are shown here:  
 w5100.h changes: https://www.diffchecker.com/0eUuANWW  
 w5100.cpp changes: https://www.diffchecker.com/MraUAw03  
+Ethernet.h changes: https://www.diffchecker.com/Rm37U5zK  (added timeout)  
+Ethernet.cpp changes: https://www.diffchecker.com/C5Vfr5lm  (added timeout)
 
-Arduino made some minor changes from 1.6.6 to 1.8.4, mostly changing the name of some constants. You can see those changes here:  
+Arduino made some minor changes from w5100 1.6.6 to 1.8.4 (no changes to Ethernet.h/cpp files), mostly changing the name of some constants. You can see those changes here:  
 w5100.h: https://www.diffchecker.com/RZSHJdTH  
 w5100.cpp: https://www.diffchecker.com/WDdLcEgv  
 
-Here are the changes SurferTim made to the 1.5.8 version of the files:
-Ethernet.h https://www.diffchecker.com/V9PzVlbb  
+Here are the changes SurferTim made to the 1.5.8 version of the files:  
+Ethernet.h https://www.diffchecker.com/V9PzVlbb  
 Ethernet.cpp https://www.diffchecker.com/lTf9IvhC  
 w5100.h https://www.diffchecker.com/qFhgWXbQ  
 w5100.cpp https://www.diffchecker.com/goLkR0sG  
+
 
 
 
