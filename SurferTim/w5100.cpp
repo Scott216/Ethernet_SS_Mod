@@ -1,5 +1,8 @@
+// Modified by SurferTim to support Ethernet.select()
+// See: http://forum.arduino.cc/index.php?topic=217423.msg1962182#msg1962182
+
 /*
- * Copyright (c) 2010 by Cristian Maglie <c.maglie@arduino.cc>
+ * Copyright (c) 2010 by Cristian Maglie <c.maglie@bug.st>
  *
  * This file is free software; you can redistribute it and/or modify
  * it under the terms of either the GNU General Public License version 2
@@ -21,6 +24,28 @@ W5100Class W5100;
 
 #define TXBUF_BASE 0x4000
 #define RXBUF_BASE 0x6000
+
+uint8_t W5100Class::slaveSelect = 10;
+
+void W5100Class::selectSS(uint8_t _ss)
+{
+  slaveSelect = _ss;
+}
+
+void W5100Class::initSS(void)
+{ 
+  digitalWrite(slaveSelect, HIGH); 
+}
+
+void W5100Class::setSS(void)
+{ 
+  digitalWrite(slaveSelect, LOW); 
+}
+
+void W5100Class::resetSS(void)
+{ 
+  digitalWrite(slaveSelect, HIGH);
+}
 
 void W5100Class::init(void)
 {
